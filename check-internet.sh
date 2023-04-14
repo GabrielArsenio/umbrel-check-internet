@@ -35,7 +35,8 @@ else
     
   if [[ $shouldTurnOff == true ]]; then
     log "Turning off Umbrel"
-    /home/umbrel/umbrel/scripts/stop | log
+    log $(/home/umbrel/umbrel/scripts/stop)
     log "Turning off Rasp"
+    log $(shutdown)
   fi
 fi
