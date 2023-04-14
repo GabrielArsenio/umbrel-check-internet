@@ -13,7 +13,7 @@ log() {
 }
 
 if nc -zw1 google.com 443; then
-  echo
+  log "internet ON"
 else
   log "internet OFF :("
 
