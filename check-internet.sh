@@ -1,15 +1,16 @@
 #!/bin/bash
 
+BASEDIR=$(cd $(dirname $0) && pwd)
 FileName=${0##*/}
 FileNameWithoutExtension=${FileName%.*}
-LogFile="$FileNameWithoutExtension.log"
+LogFile="$BASEDIR/$FileNameWithoutExtension.log"
 
 if ! [[ -f "$LogFile" ]]; then
   touch $LogFile
 fi
 
 log() {
-  echo "$1" >> $LogFile 
+  echo "[$(date)] $1" >> $LogFile 
 }
 
 if nc -zw1 google.com 443; then
