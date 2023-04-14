@@ -22,8 +22,8 @@ while true; do
 
     shouldTurnOff=true
 
-    for i in $(seq 1 10); do
-      sleep 1
+    for i in $(seq 1 8); do
+      sleep 30
       log "Checking again $i"
 
       if nc -zw1 google.com 443; then
@@ -37,7 +37,7 @@ while true; do
       
     if [[ $shouldTurnOff == true ]]; then
       log "Turning off Umbrel"
-      log $(/home/umbrel/umbrel/scripts/stop)
+      log $(sudo /home/umbrel/umbrel/scripts/stop)
       log "Turning off Rasp"
       log $(sudo shutdown)
     fi
